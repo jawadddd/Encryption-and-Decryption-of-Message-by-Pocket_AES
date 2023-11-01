@@ -1,0 +1,16 @@
+There are various problems with the encryption method mentioned in Section B:
+
+Key Management: Procedures for key production, storage, and distribution are not covered by the system. Any cryptography system must consider these factors.
+No Mention of Key Size: Neither the key size nor the encryption technique employed are mentioned in the scheme. The strength of the encryption method and the size of the key both affect how secure a cryptographic system is.
+The technique appears to be operating in an Electronic Codebook (ECB) mode, where each block of plaintext is independently encrypted using the same key. Since it doesn't offer semantic security, this mode is inappropriate for protecting text data.
+Similar blocks of plaintext will produce similar blocks of ciphertext, which might let information slip.
+Null padding (adding '00' in hex) is used in the padding scheme for blocks that are less than 16 bits long. Since null padding doesn't offer any integrity checks, it is not safe. To possibly alter the meaning of the plaintext, an attacker can edit or eliminate the padding.
+No Authentication: The ciphertext is not authenticated in any way by the scheme. Without authentication, a potential attacker might alter the ciphertext, creating security holes.
+Less Details on Encryption technique: The plan is silent on the encryption technique it employs, including whether it is symmetric or asymmetric. Security is significantly impacted by algorithm selection.
+
+
+
+
+
+
+
